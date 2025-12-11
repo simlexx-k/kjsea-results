@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KNEC Assessment Scraper
+
+A professional, high-performance tool for scraping, analyzing, and reporting KNEC assessment results. Built with Next.js, Tailwind CSS, and shadcn/ui.
+
+![Summary Dashboard](public/media/summary_screenshot.png)
+
+## Features
+
+-   **Automated Data Retrieval**: Scrapes assessment data from the KNEC portal using a robust, retry-enabled API handler.
+-   **Bulk Processing**: Supports bulk input of student data (Name & Assessment Number) with intelligent parsing.
+-   **Interactive Results Table**:
+    -   Sortable columns for easy analysis.
+    -   Dedicated columns for Pathway scores (Arts & Sports, Social Science, STEM).
+    -   Subject-specific grade and point display.
+-   **Summary Dashboard**: Instant visualization of key metrics:
+    -   Total Candidates
+    -   Gender Distribution
+    -   Average Pathway Scores
+-   **Professional Reporting**:
+    -   **Print to PDF**: Generates a clean, printer-friendly report with a single click.
+    -   **CSV Export**: Downloads raw data for further analysis in Excel or Sheets.
+-   **Modern UI/UX**:
+    -   Clean, responsive design using **shadcn/ui**.
+    -   Real-time processing logs.
+    -   Polished interactions and typography.
+
+## Demo
+
+### Bulk Processing & Summary
+Watch the system process a batch of 30 students and generate instant insights.
+
+![Bulk Processing Demo](public/media/bulk_demo.webp)
+
+### Interactive Table & Sorting
+Easily sort and analyze results by assessment number, name, or pathway scores.
+
+![Table Interaction Demo](public/media/table_demo.webp)
+
+## Tech Stack
+
+-   **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/) & [shadcn/ui](https://ui.shadcn.com/)
+-   **Table Logic**: [@tanstack/react-table](https://tanstack.com/table/v8)
+-   **PDF Generation**: [react-to-print](https://github.com/gregnb/react-to-print)
+-   **CSV Parsing**: [PapaParse](https://www.papaparse.com/)
+-   **Icons**: [Lucide React](https://lucide.dev/)
 
 ## Getting Started
 
-First, run the development server:
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/knec-scraper.git
+    cd knec-scraper
+    ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4.  **Open the app**:
+    Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Usage
 
-## Learn More
+1.  **Prepare Data**: Have your list of students ready. Supported formats:
+    -   `AssessmentNumber, Name`
+    -   `Name AssessmentNumber` (e.g., copied from Excel)
+2.  **Paste & Fetch**: Paste the data into the input box and click **Fetch Results**.
+3.  **Analyze**: View the summary cards and sort the table to find insights.
+4.  **Export**:
+    -   Click **Print Report** for a PDF version.
+    -   Click **Download CSV** for the raw file.
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
