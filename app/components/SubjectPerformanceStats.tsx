@@ -68,8 +68,8 @@ export const SubjectPerformanceStats: React.FC<SubjectPerformanceStatsProps> = (
                 <CardTitle className="text-lg font-semibold">Subject Performance Analysis</CardTitle>
             </CardHeader>
             <CardContent className="print:p-0">
-                <div className="rounded-md border print:border-0 overflow-x-auto">
-                    <Table className="print:text-xs text-xs sm:text-sm">
+                <div className="rounded-md border print:border-0 overflow-x-auto max-w-[calc(100vw-2rem)] mx-auto scrollbar-visible">
+                    <Table className="print:text-xs text-xs sm:text-sm whitespace-nowrap">
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[180px]">Subject</TableHead>

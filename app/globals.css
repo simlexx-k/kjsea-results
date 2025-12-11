@@ -116,7 +116,54 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-visible::-webkit-scrollbar {
+    -webkit-appearance: none;
+    height: 8px;
+    width: 8px;
+  }
+
+  .scrollbar-visible::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  }
+}
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 5mm;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Ensure tables don't get cut off */
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  /* Hide scrollbars in print */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Force black text for better contrast */
+  * {
+    color: black !important;
   }
 }

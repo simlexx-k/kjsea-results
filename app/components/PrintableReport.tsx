@@ -11,7 +11,7 @@ interface PrintableReportProps {
 export const PrintableReport = React.forwardRef<HTMLDivElement, PrintableReportProps>(
     ({ data }, ref) => {
         return (
-            <div ref={ref} className="p-8 print:p-0">
+            <div ref={ref} className="p-4 md:p-8 print:p-0">
                 <div className="mb-8 text-center hidden print:block">
                     <h1 className="text-3xl font-bold text-blue-900">KNEC Assessment Report</h1>
                     <p className="text-gray-500">Generated on {new Date().toLocaleDateString()}</p>

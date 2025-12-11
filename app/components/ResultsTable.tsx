@@ -130,8 +130,8 @@ export const ResultsTable: React.FC<{ data: StudentResult[] }> = ({ data }) => {
     })
 
     return (
-        <div className="rounded-md border mt-6 print:border-0 print:shadow-none print:mt-0">
-            <Table className="print:text-xs">
+        <div className="rounded-md border mt-6 print:border-0 print:shadow-none print:mt-0 overflow-x-auto max-w-[calc(100vw-2rem)] mx-auto scrollbar-visible">
+            <Table className="print:text-xs whitespace-nowrap">
                 <TableHeader>
                     {table.getHeaderGroups().map((headerGroup) => (
                         <TableRow key={headerGroup.id}>
