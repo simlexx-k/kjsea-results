@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KNEC Assessment Scraper",
-  description: "A professional tool for scraping and analyzing KNEC assessment results.",
+  title: "KNEC KJSEA RESULTS 2025",
+  description: "A professional tool for scraping and analyzing KNEC KJSEA assessment results.",
 };
 
 export default function RootLayout({

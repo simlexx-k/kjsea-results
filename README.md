@@ -1,6 +1,6 @@
-# KNEC Assessment Scraper
+# KNEC KJSEA RESULTS 2025
 
-A professional, high-performance tool for scraping, analyzing, and reporting KNEC assessment results. Built with Next.js, Tailwind CSS, and shadcn/ui.
+A professional, high-performance tool for scraping, analyzing, and reporting KNEC KJSEA assessment results. Built with Next.js, Tailwind CSS, and shadcn/ui.
 
 ![Summary Dashboard](public/media/summary_screenshot.png)
 

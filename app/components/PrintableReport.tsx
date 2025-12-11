@@ -1,6 +1,7 @@
 import React from 'react';
 import { StudentResult } from '@/app/types';
 import { SummaryStats } from './SummaryStats';
+import { SubjectPerformanceStats } from './SubjectPerformanceStats';
 import { ResultsTable } from './ResultsTable';
 
 interface PrintableReportProps {
@@ -19,6 +20,11 @@ export const PrintableReport = React.forwardRef<HTMLDivElement, PrintableReportP
                 <div className="mb-8">
                     <h2 className="text-xl font-semibold mb-4 print:hidden">Summary Statistics</h2>
                     <SummaryStats data={data} />
+                </div>
+
+                <div className="mb-8">
+                    <h2 className="text-xl font-semibold mb-4 print:hidden">Subject Performance</h2>
+                    <SubjectPerformanceStats data={data} />
                 </div>
 
                 <div>
