@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import Papa from 'papaparse';
+
 import { Printer, Search, GraduationCap } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/app/components/ui/card';
 import { Button } from '@/app/components/ui/button';
@@ -82,17 +82,7 @@ export default function Home() {
       setResults(data);
       setLogs((prev) => [...prev, `Received ${data.length} results.`]);
 
-      // CSV download
-      const csv = Papa.unparse(data);
-      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'knec_results.csv');
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setLogs((prev) => [...prev, `Download started!`]);
+      setLogs((prev) => [...prev, `Process complete!`]);
     } catch (error) {
       console.error(error);
       setLogs((prev) => [...prev, `Error: Failed to fetch results.`]);
@@ -354,7 +344,7 @@ export default function Home() {
             <div className="bg-blue-600 p-2 rounded-lg">
               <GraduationCap className="h-6 w-6 text-white" />
             </div>
-            <h1 className="text-xl font-bold text-slate-900 tracking-tight">KNEC Scraper</h1>
+            <h1 className="text-xl font-bold text-slate-900 tracking-tight">KNEC KJSEA Tool</h1>
           </div>
           <div className="flex items-center gap-4">
             {results.length > 0 && (
@@ -403,7 +393,7 @@ export default function Home() {
                     ) : (
                       <span className="flex items-center gap-2">
                         <Search className="h-5 w-5" />
-                        Fetch Results & Download CSV
+                        Fetch Results
                       </span>
                     )}
                   </Button>
@@ -441,8 +431,21 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-8 mt-auto print:hidden">
-        <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
-          <p>© {new Date().getFullYear()} KNEC KJSEA Assessment Scraper. Built for educational data analysis only. Privacy Policy from KNEC applies.</p>
+        <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm space-y-4">
+          <p>© {new Date().getFullYear()} KNEC. Built for educational data analysis only. <a href="https://knec.ac.ke" className="underline hover:text-slate-700">KNEC</a> Privacy Policy applies.</p>
+
+          <div className="max-w-3xl mx-auto text-xs text-slate-400 border-t border-slate-100 pt-4">
+            <p className="font-semibold mb-1">Disclaimer & Data Privacy Notice:</p>
+            <p>
+              This tool is an independent client-side application designed to facilitate the retrieval of public results.
+              It is <strong>not affiliated with, endorsed by, or connected to the Kenya National Examinations Council (KNEC)</strong>.
+            </p>
+            <p className="mt-2">
+              <strong>No Personal Data Storage:</strong> This application runs entirely in your browser. No student data, names, or assessment numbers are stored on our servers.
+              All communication occurs directly between your device and the official results portal.
+              We accept no liability for any errors, omissions, or misuse of this tool. Users are responsible for ensuring compliance with all applicable data protection laws.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
