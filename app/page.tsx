@@ -386,7 +386,7 @@ export default function Home() {
                 <div className="grid gap-4">
                   <textarea
                     className="w-full h-48 p-4 border border-slate-200 rounded-lg font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-y"
-                    placeholder={`Example:\nCAROLINE JEPCHUMBA A001376825\nBRANDON CHERUIYOT A000266384`}
+                    placeholder={`Example:\nTEST LEARNER A00123456\nMY NAME A000264123`}
                     value={inputData}
                     onChange={(e) => setInputData(e.target.value)}
                   />
