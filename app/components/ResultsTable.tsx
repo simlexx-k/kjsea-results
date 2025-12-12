@@ -40,7 +40,7 @@ export const ResultsTable: React.FC<{ data: StudentResult[] }> = ({ data }) => {
     const [sorting, setSorting] = React.useState<SortingState>([])
 
     const columns: ColumnDef<StudentResult>[] = [
-        {
+        /*{
             accessorKey: "input_assessment",
             header: ({ column }) => {
                 return (
@@ -53,7 +53,7 @@ export const ResultsTable: React.FC<{ data: StudentResult[] }> = ({ data }) => {
                     </button>
                 )
             },
-        },
+        },*/
         {
             accessorKey: "input_name",
             header: "Name",
@@ -63,10 +63,7 @@ export const ResultsTable: React.FC<{ data: StudentResult[] }> = ({ data }) => {
             header: "Gender",
             cell: ({ row }) => row.original.gender?.trim(),
         },
-        {
-            accessorKey: "centreName",
-            header: "Centre",
-        },
+
         // Generate columns for each subject
         ...Object.entries(SUBJECT_MAP).map(([code, name]) => ({
             id: `subject_${code}`,
