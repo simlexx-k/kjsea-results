@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 
-import { Printer, Search, GraduationCap } from 'lucide-react';
+import { Printer, Search, GraduationCap, Copy } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/app/components/ui/card';
 import { Button } from '@/app/components/ui/button';
 import { StudentResult } from '@/app/types';
@@ -348,14 +348,27 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             {results.length > 0 && (
-              <Button
-                onClick={exportPdf}
-                variant="outline"
-                className="flex items-center gap-2"
-              >
-                <Printer className="h-4 w-4" />
-                Print Report
-              </Button>
+              <div className="flex gap-2">
+                <Button
+                  onClick={() => {
+                    navigator.clipboard.writeText(JSON.stringify(results, null, 2));
+                    alert("Results copied to clipboard as JSON");
+                  }}
+                  variant="outline"
+                  className="flex items-center gap-2"
+                >
+                  <Copy className="h-4 w-4" />
+                  Copy JSON
+                </Button>
+                <Button
+                  onClick={exportPdf}
+                  variant="outline"
+                  className="flex items-center gap-2"
+                >
+                  <Printer className="h-4 w-4" />
+                  Print Report
+                </Button>
+              </div>
             )}
           </div>
         </div>
@@ -427,10 +440,10 @@ export default function Home() {
             </div>
           )}
         </div>
-      </main>
+      </main >
 
       {/* Footer */}
-      <footer className="bg-white border-t border-slate-200 py-8 mt-auto print:hidden">
+      < footer className="bg-white border-t border-slate-200 py-8 mt-auto print:hidden" >
         <div className="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm space-y-4">
           <p>© {new Date().getFullYear()} KNEC. Built for educational data analysis only. <a href="https://knec.ac.ke" className="underline hover:text-slate-700">KNEC</a> Privacy Policy applies.</p>
 
@@ -447,7 +460,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </footer>
-    </div>
+      </footer >
+    </div >
   );
 }
